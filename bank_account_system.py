@@ -3,7 +3,6 @@
 import hashlib
 import os
 import secrets
-import sys
 
 account_data = {}
 
@@ -31,8 +30,7 @@ def deposit(acc_id, amount):
 
 def withdraw(acc_id, amount):
     """Withdraw amount if the account exists and has enough balance."""
-    service_fee = 2.50
-    if account_data.get(acc_id) == None:
+    if account_data.get(acc_id) is None:
         return False
     if account_data[acc_id]["balance"] < amount:
         return False
